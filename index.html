@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Semantic UI Modal</title>
+	<link rel="stylesheet" href="./semantic-ui/semantic.min.css">
+
+	<script type="text/javascript" src="./jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="./angularjs/angular.min.js"></script>
+	<script type="text/javascript" src="./semantic-ui/semantic.min.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+	
+	<div class="ui basic segment">
+		<button type="button" class="ui big blue button" ng-click="showModal()">Show Modal</button>
+		<button type="button" class="ui big red button" ng-click="destroyModal()">Destroy Modal</button>
+	</div>
+
+	<script type="text/javascript" src="./semantic-modal.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>
