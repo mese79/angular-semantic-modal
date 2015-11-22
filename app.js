@@ -14,14 +14,6 @@ function modalCtrl($scope) {
 	this.onHidden = function() {
 		console.log("form is hidden now!");	
 	};
-
-	this.onSubmit = function() {
-		console.log("form was submited.");	
-	};
-
-	this.onDeny = function() {
-		console.log("form was denied!");	
-	};
 };
 app.controller("modalCtrl", ["$scope", modalCtrl]);
 
@@ -31,13 +23,18 @@ app.controller("mainCtrl", function($scope, Modal) {
 	var myModal = new Modal({
 		closable: false,
 		templateUrl: "./my-modal.html",
-		controller: "modalCtrl as ctrl",
-		onVisible: "onShown",
-		onApprove: "onSubmit"
+		controller: "modalCtrl as ctrl"
 	});
 
 	$scope.showModal = function() {
-		myModal.show();
+		myModal.show()
+			.then(function(result) {
+				console.log("modal result is:", result);
+			},
+			function(reason) {
+				console.error('Failed:', reason);
+				defered.reject(reason);
+			});
 	};
 
 	$scope.destroyModal = function() {
